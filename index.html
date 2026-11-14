@@ -1,0 +1,749 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Катя и Дима — мебель из массива дуба</title>
+<meta name="description" content="Семейная столярная мастерская: полки, консоли, тумбы, столы и светильники из массива дуба на заказ.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0f151d;        /* глубокий тёмно-синий */
+  --navy:#16202c;
+  --navy-2:#1d2a39;
+  --graphite:#2a2e33;
+  --oak:#c48a52;        /* медовый дуб */
+  --oak-light:#dcb385;
+  --cognac:#8a5530;
+  --brass:#b99a62;
+  --cream:#f3ece1;
+  --paper:#faf6ef;
+  --text:#2a2622;
+  --muted:#7b7166;
+  --line:rgba(185,154,98,.28);
+  --serif:"Cormorant Garamond", Georgia, serif;
+  --sans:"Manrope", system-ui, sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--text);background:var(--paper);line-height:1.6;font-weight:400;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.08;letter-spacing:-.01em}
+.eyebrow{font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--brass);font-weight:500;display:flex;align-items:center;gap:14px}
+.eyebrow::before{content:"";width:36px;height:1px;background:currentColor}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 30px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;border:1px solid var(--brass);transition:.3s;cursor:pointer;font-family:var(--sans);background:none}
+.btn-solid{background:var(--brass);color:var(--ink)}
+.btn-solid:hover{background:var(--oak-light);border-color:var(--oak-light)}
+.btn-ghost{color:var(--cream)}
+.btn-ghost:hover{background:rgba(185,154,98,.12)}
+.btn-dark{color:var(--ink);border-color:var(--ink)}
+.btn-dark:hover{background:var(--ink);color:var(--cream)}
+
+/* ===== фото-заглушки: заменить на <img> ===== */
+.ph{position:relative;overflow:hidden;background:
+  repeating-linear-gradient(92deg, rgba(255,255,255,.05) 0 2px, transparent 2px 9px),
+  repeating-radial-gradient(ellipse 140% 40% at 20% 120%, rgba(0,0,0,.08) 0 3px, transparent 3px 14px),
+  linear-gradient(135deg, var(--oak-light), var(--oak) 45%, var(--cognac));}
+.ph.dark{background:
+  repeating-linear-gradient(92deg, rgba(255,255,255,.035) 0 2px, transparent 2px 9px),
+  repeating-radial-gradient(ellipse 140% 40% at 80% 120%, rgba(0,0,0,.12) 0 3px, transparent 3px 14px),
+  linear-gradient(135deg, #6d4a30, #3e2a1c 60%, #251912);}
+.ph.grey{background:
+  repeating-linear-gradient(92deg, rgba(255,255,255,.04) 0 2px, transparent 2px 9px),
+  linear-gradient(135deg, #9b9288, #6f6860 60%, #4d4843);}
+.ph > img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.ph[data-label]::after{content:"фото: " attr(data-label);position:absolute;left:14px;bottom:12px;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.75);background:rgba(15,21,29,.35);padding:5px 9px;backdrop-filter:blur(4px)}
+.ph:has(img)::after{display:none}
+
+/* ===== шапка ===== */
+header{position:fixed;inset:0 0 auto;z-index:50;transition:.35s}
+header.scrolled{background:rgba(15,21,29,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:84px;color:var(--cream)}
+.logo{display:flex;align-items:center;gap:14px}
+.logo-mark{width:42px;height:42px;border:1px solid var(--brass);display:grid;place-items:center;font-family:var(--serif);font-size:20px;color:var(--brass);font-style:italic}
+.logo-text{font-family:var(--serif);font-size:22px;line-height:1}
+.logo-text small{display:block;font-family:var(--sans);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--brass);margin-top:4px}
+.menu{display:flex;gap:34px;font-size:13px;letter-spacing:.08em}
+.menu a{opacity:.85;transition:.2s;position:relative}
+.menu a:hover{opacity:1;color:var(--oak-light)}
+.nav-right{display:flex;align-items:center;gap:18px}
+.cart-btn{position:relative;width:44px;height:44px;border:1px solid var(--line);display:grid;place-items:center;cursor:pointer;background:none;color:var(--cream);transition:.2s}
+.cart-btn:hover{border-color:var(--brass)}
+.cart-count{position:absolute;top:-7px;right:-7px;background:var(--brass);color:var(--ink);font-size:11px;font-weight:600;min-width:20px;height:20px;border-radius:10px;display:grid;place-items:center;padding:0 5px}
+.cart-count:empty{display:none}
+.burger{display:none;background:none;border:0;color:var(--cream);cursor:pointer}
+
+/* ===== hero ===== */
+.hero{min-height:100vh;background:var(--ink);color:var(--cream);position:relative;display:grid;grid-template-columns:1.05fr 1fr;overflow:hidden}
+.hero-text{padding:170px 64px 90px max(32px, calc((100vw - 1240px)/2 + 32px));display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}
+.hero h1{font-size:clamp(46px,6.2vw,92px);margin:26px 0 28px}
+.hero h1 em{color:var(--oak-light);font-style:italic}
+.hero p.lead{font-size:17px;max-width:470px;color:rgba(243,236,225,.72);font-weight:300;margin-bottom:44px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.hero-stats{display:flex;gap:48px;margin-top:70px;padding-top:30px;border-top:1px solid var(--line)}
+.hero-stats b{display:block;font-family:var(--serif);font-size:38px;font-weight:500;color:var(--oak-light);line-height:1}
+.hero-stats span{font-size:12px;letter-spacing:.1em;color:rgba(243,236,225,.55);text-transform:uppercase}
+.hero-img{position:relative}
+.hero-img .ph{position:absolute;inset:0}
+.hero-img::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--ink) 0%,transparent 30%);z-index:1}
+.hero-badge{position:absolute;bottom:60px;left:-40px;z-index:3;background:var(--paper);color:var(--text);padding:24px 28px;max-width:280px;box-shadow:0 30px 60px rgba(0,0,0,.35)}
+.hero-badge .t{font-family:var(--serif);font-size:22px;line-height:1.2}
+.hero-badge .s{font-size:12px;color:var(--muted);margin-top:8px}
+
+/* ===== секции ===== */
+section{padding:130px 0}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:64px;flex-wrap:wrap}
+.sec-head h2{font-size:clamp(38px,4.6vw,64px);margin-top:18px}
+.sec-head p{max-width:420px;color:var(--muted)}
+
+/* преимущества-полоса */
+.strip{background:var(--navy);color:var(--cream);padding:0}
+.strip .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.strip-item{padding:44px 30px;border-left:1px solid var(--line)}
+.strip-item:last-child{border-right:1px solid var(--line)}
+.strip-item svg{color:var(--brass);margin-bottom:18px}
+.strip-item h4{font-family:var(--serif);font-size:22px;font-weight:500;margin-bottom:6px}
+.strip-item p{font-size:13px;color:rgba(243,236,225,.6)}
+
+/* о нас */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:center}
+.about-photos{position:relative;height:640px}
+.about-photos .ph:nth-child(1){position:absolute;left:0;top:0;width:72%;height:82%}
+.about-photos .ph:nth-child(2){position:absolute;right:0;bottom:0;width:50%;height:52%;border:10px solid var(--paper)}
+.about-text h2{font-size:clamp(38px,4.4vw,60px);margin:18px 0 30px}
+.about-text h2 em{color:var(--cognac)}
+.about-text p{margin-bottom:18px;color:#4d463f}
+.quote{font-family:var(--serif);font-size:26px;font-style:italic;line-height:1.35;color:var(--navy);border-left:2px solid var(--brass);padding-left:26px;margin:36px 0}
+.signature{display:flex;gap:40px;margin-top:34px}
+.signature div b{font-family:var(--serif);font-size:24px;font-weight:500;display:block}
+.signature div span{font-size:12px;color:var(--muted);letter-spacing:.06em}
+
+/* путь */
+.path{background:var(--cream)}
+.timeline{display:grid;grid-template-columns:repeat(5,1fr);position:relative}
+.timeline::before{content:"";position:absolute;top:22px;left:0;right:0;height:1px;background:var(--brass);opacity:.5}
+.tl{padding-right:26px;position:relative}
+.tl .dot{width:45px;height:45px;border-radius:50%;background:var(--cream);border:1px solid var(--brass);display:grid;place-items:center;font-family:var(--serif);font-size:18px;color:var(--cognac);margin-bottom:24px;position:relative}
+.tl:last-child .dot{background:var(--navy);color:var(--oak-light);border-color:var(--navy)}
+.tl h4{font-family:var(--serif);font-size:24px;font-weight:500;margin-bottom:8px}
+.tl p{font-size:14px;color:var(--muted)}
+
+/* каталог */
+.catalog{background:var(--paper)}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:44px}
+.filter{padding:11px 22px;border:1px solid #d9cfc0;background:none;font-family:var(--sans);font-size:13px;letter-spacing:.04em;cursor:pointer;transition:.2s;color:var(--text)}
+.filter:hover{border-color:var(--navy)}
+.filter.active{background:var(--navy);color:var(--cream);border-color:var(--navy)}
+.products{display:grid;grid-template-columns:repeat(3,1fr);gap:36px 28px}
+.product{display:flex;flex-direction:column;transition:.3s}
+.product.hide{display:none}
+.product .ph{aspect-ratio:4/5;margin-bottom:20px;transition:.5s}
+.product-media{position:relative;overflow:hidden}
+.product-media .tag{position:absolute;top:14px;left:14px;z-index:2;background:var(--paper);font-size:10px;letter-spacing:.18em;text-transform:uppercase;padding:6px 10px}
+.product-media .quick{position:absolute;left:14px;right:14px;bottom:34px;z-index:2;opacity:0;transform:translateY(10px);transition:.3s}
+.product:hover .product-media .quick{opacity:1;transform:none}
+.product:hover .ph{transform:scale(1.03)}
+.product .cat{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--brass)}
+.product h3{font-size:26px;margin:6px 0 6px}
+.product .specs{font-size:13px;color:var(--muted);margin-bottom:14px;flex:1}
+.product .row{display:flex;justify-content:space-between;align-items:center;border-top:1px solid #e3d9ca;padding-top:14px}
+.price{font-family:var(--serif);font-size:24px;font-weight:600;color:var(--navy)}
+.price small{font-family:var(--sans);font-size:12px;color:var(--muted);font-weight:400}
+.add{background:none;border:0;font-family:var(--sans);font-size:12px;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;color:var(--cognac);font-weight:600;display:flex;gap:8px;align-items:center}
+.add:hover{color:var(--navy)}
+.swatches{display:flex;gap:6px;margin-bottom:12px}
+.swatches i{width:16px;height:16px;border-radius:50%;border:1px solid rgba(0,0,0,.1)}
+.custom-banner{margin-top:80px;background:var(--navy);color:var(--cream);display:grid;grid-template-columns:1.3fr 1fr;align-items:center}
+.custom-banner .in{padding:60px}
+.custom-banner h3{font-size:40px;margin:16px 0 16px}
+.custom-banner p{color:rgba(243,236,225,.65);margin-bottom:30px;max-width:460px}
+.custom-banner .ph{height:100%;min-height:340px}
+.marketplaces{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px;font-size:12px;color:rgba(243,236,225,.55);align-items:center}
+.marketplaces span{border:1px solid var(--line);padding:6px 12px;color:var(--cream)}
+
+/* работы */
+.works{background:var(--ink);color:var(--cream)}
+.works .sec-head p{color:rgba(243,236,225,.6)}
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:260px;gap:14px}
+.work{position:relative;overflow:hidden;cursor:pointer}
+.work .ph{position:absolute;inset:0;transition:.6s}
+.work:hover .ph{transform:scale(1.05)}
+.work .cap{position:absolute;inset:auto 0 0 0;padding:60px 22px 20px;background:linear-gradient(transparent,rgba(15,21,29,.88));z-index:2;transform:translateY(30%);opacity:0;transition:.35s}
+.work:hover .cap{transform:none;opacity:1}
+.work .cap h4{font-family:var(--serif);font-size:22px;font-weight:500}
+.work .cap span{font-size:12px;color:var(--oak-light);letter-spacing:.06em}
+.work .ph::after{z-index:1}
+.w-tall{grid-row:span 2}.w-wide{grid-column:span 2}
+.works-more{text-align:center;margin-top:54px}
+
+/* материалы */
+.materials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.mat{background:#fff;padding:44px 36px;border:1px solid #ece3d6}
+.mat .num{font-family:var(--serif);font-size:54px;color:var(--oak);line-height:1;font-style:italic}
+.mat h4{font-family:var(--serif);font-size:28px;font-weight:500;margin:18px 0 12px}
+.mat p{font-size:14px;color:var(--muted)}
+.tones{display:flex;gap:18px;margin-top:60px;flex-wrap:wrap;justify-content:center}
+.tone{text-align:center;font-size:12px;color:var(--muted);letter-spacing:.06em}
+.tone i{display:block;width:84px;height:84px;border-radius:50%;margin:0 auto 12px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)}
+
+/* отзывы */
+.reviews{background:var(--cream)}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.rev{background:var(--paper);padding:40px 36px;position:relative;border-top:2px solid var(--brass)}
+.rev::before{content:"“";font-family:var(--serif);font-size:90px;line-height:.6;color:var(--oak-light);display:block;height:36px}
+.rev p{font-family:var(--serif);font-size:21px;line-height:1.4;font-style:italic;color:var(--navy);margin-bottom:26px}
+.rev .who{display:flex;align-items:center;gap:12px;font-size:13px}
+.rev .who i{width:38px;height:38px;border-radius:50%;background:var(--navy);color:var(--oak-light);display:grid;place-items:center;font-style:normal;font-family:var(--serif);font-size:17px}
+.rev .who small{display:block;color:var(--muted);font-size:12px}
+.note{margin-top:30px;font-size:12px;color:var(--muted);text-align:center;font-style:italic}
+
+/* faq */
+.faq-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:90px}
+.faq-item{border-bottom:1px solid #e3d9ca}
+.faq-item summary{list-style:none;cursor:pointer;padding:26px 0;font-family:var(--serif);font-size:24px;display:flex;justify-content:space-between;gap:20px}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:"+";color:var(--brass);font-size:28px;line-height:1;transition:.3s}
+.faq-item[open] summary::after{transform:rotate(45deg)}
+.faq-item p{padding:0 0 26px;color:var(--muted);max-width:620px}
+
+/* контакты */
+.contact{background:var(--navy);color:var(--cream);position:relative;overflow:hidden}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:start}
+.contact h2{font-size:clamp(40px,5vw,72px);margin:18px 0 26px}
+.contact h2 em{color:var(--oak-light)}
+.contact .lead{color:rgba(243,236,225,.65);max-width:440px;margin-bottom:40px}
+.channels{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+.channel{display:flex;justify-content:space-between;align-items:center;padding:24px 28px;background:var(--navy);transition:.25s}
+.channel:hover{background:var(--navy-2)}
+.channel b{font-family:var(--serif);font-size:24px;font-weight:500;display:block}
+.channel span{font-size:13px;color:rgba(243,236,225,.55)}
+.channel svg{color:var(--brass);flex-shrink:0}
+form.order{background:var(--paper);color:var(--text);padding:48px}
+form.order h3{font-size:32px;margin-bottom:8px}
+form.order > p{font-size:14px;color:var(--muted);margin-bottom:28px}
+.field{margin-bottom:18px}
+.field label{display:block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.field input,.field select,.field textarea{width:100%;border:0;border-bottom:1px solid #d6cbbb;background:transparent;padding:10px 0;font-family:var(--sans);font-size:15px;color:var(--text);outline:none;transition:.2s}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--cognac)}
+.field textarea{resize:vertical;min-height:80px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+
+footer{background:var(--ink);color:rgba(243,236,225,.5);padding:44px 0;font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+
+/* корзина */
+.overlay{position:fixed;inset:0;background:rgba(15,21,29,.55);opacity:0;pointer-events:none;transition:.3s;z-index:90}
+.overlay.on{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(420px,100%);background:var(--paper);z-index:100;transform:translateX(100%);transition:.4s cubic-bezier(.2,.7,.2,1);display:flex;flex-direction:column}
+.drawer.on{transform:none}
+.drawer-head{display:flex;justify-content:space-between;align-items:center;padding:28px 30px;border-bottom:1px solid #e3d9ca}
+.drawer-head h3{font-size:30px}
+.drawer-head button{background:none;border:0;font-size:28px;cursor:pointer;color:var(--muted)}
+.drawer-body{flex:1;overflow:auto;padding:10px 30px}
+.ci{display:grid;grid-template-columns:64px 1fr auto;gap:16px;padding:18px 0;border-bottom:1px solid #eee5d8;align-items:center}
+.ci .ph{width:64px;height:64px}
+.ci b{font-family:var(--serif);font-size:19px;font-weight:500;display:block;line-height:1.2}
+.ci span{font-size:12px;color:var(--muted)}
+.ci button{background:none;border:0;color:var(--muted);cursor:pointer;font-size:18px}
+.empty{padding:60px 0;text-align:center;color:var(--muted)}
+.drawer-foot{padding:26px 30px;border-top:1px solid #e3d9ca}
+.drawer-foot p{font-size:12px;color:var(--muted);margin-bottom:16px}
+.drawer-foot .btn{width:100%;justify-content:center}
+.toast{position:fixed;bottom:30px;left:50%;transform:translate(-50%,20px);background:var(--navy);color:var(--cream);padding:14px 24px;font-size:14px;opacity:0;transition:.3s;z-index:110;border-left:2px solid var(--brass)}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+
+.reveal{opacity:0;transform:translateY(30px);transition:1s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* адаптив */
+@media (max-width:1080px){
+  .menu{display:none}
+  .burger{display:block}
+  .menu.open{display:flex;position:absolute;top:84px;left:0;right:0;flex-direction:column;gap:0;background:var(--ink);border-bottom:1px solid var(--line)}
+  .menu.open a{padding:18px 32px;border-top:1px solid var(--line)}
+  .hero{grid-template-columns:1fr}
+  .hero-img{height:56vh;order:-1}
+  .hero-img::before{background:linear-gradient(0deg,var(--ink) 0%,transparent 40%)}
+  .hero-text{padding:20px 32px 80px}
+  .hero-badge{display:none}
+  .about-grid,.faq-grid,.contact-grid{grid-template-columns:1fr;gap:56px}
+  .products,.rev-grid,.materials-grid{grid-template-columns:repeat(2,1fr)}
+  .gallery{grid-template-columns:repeat(2,1fr)}
+  .timeline{grid-template-columns:1fr;gap:30px}
+  .timeline::before{display:none}
+  .strip .wrap{grid-template-columns:repeat(2,1fr)}
+  .custom-banner{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .wrap{padding:0 16px}
+  section{padding:84px 0}
+  .hero-text{padding:20px 16px 64px}
+  .hero-stats{gap:26px}
+  .products,.rev-grid,.materials-grid,.two{grid-template-columns:1fr}
+  .gallery{grid-auto-rows:200px}
+  .w-wide{grid-column:span 2}
+  .strip .wrap{grid-template-columns:1fr}
+  .strip-item{border-right:1px solid var(--line)}
+  .about-photos{height:440px}
+  .custom-banner .in,form.order{padding:34px 24px}
+  .product-media .quick{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<header id="top">
+  <div class="wrap nav">
+    <a href="#" class="logo">
+      <div class="logo-mark">К&amp;Д</div>
+      <div class="logo-text">Катя и Дима<small>столярная мастерская</small></div>
+    </a>
+    <nav class="menu" id="menu">
+      <a href="#catalog">Каталог</a>
+      <a href="#about">О нас</a>
+      <a href="#works">Наши работы</a>
+      <a href="#materials">Материалы</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#contact">Контакты</a>
+    </nav>
+    <div class="nav-right">
+      <button class="cart-btn" id="cartOpen" aria-label="Корзина">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 8h14l-1.2 12H6.2z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        <span class="cart-count" id="cartCount"></span>
+      </button>
+      <button class="burger" id="burger" aria-label="Меню"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 7h18M3 12h18M3 17h18"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero" style="padding:0">
+  <div class="hero-text">
+    <div class="eyebrow">Мебель из массива дуба</div>
+    <h1>Мебель, которая <em>переживёт</em> нас</h1>
+    <p class="lead">Мы — Катя и Дима, муж и жена. Вдвоём делаем полки, консоли, тумбы, столы и светильники из массива дуба. Каждую деталь доводим вручную в своей мастерской.</p>
+    <div class="hero-actions">
+      <a href="#catalog" class="btn btn-solid">Смотреть каталог</a>
+      <a href="#contact" class="btn btn-ghost">Обсудить свой проект</a>
+    </div>
+    <div class="hero-stats">
+      <div><b>100%</b><span>массив дуба</span></div>
+      <div><b>4 руки</b><span>и ни одного офиса</span></div>
+      <div><b>7 400+</b><span>подписчиков</span></div>
+    </div>
+  </div>
+  <div class="hero-img">
+    <div class="ph dark" data-label="hero — главное изделие / мастерская"></div>
+    <div class="hero-badge">
+      <div class="t">Любой размер и оттенок под ваш интерьер</div>
+      <div class="s">Всё обсуждаемо: размеры, цвет, количество ящиков</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ПРЕИМУЩЕСТВА ===== -->
+<div class="strip">
+  <div class="wrap">
+    <div class="strip-item">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 3c4 4 6 7 6 10a6 6 0 0 1-12 0c0-3 2-6 6-10z"/><path d="M12 10v10"/></svg>
+      <h4>Массив дуба</h4><p>Даже донышко ящика. Без ДСП и шпона</p>
+    </div>
+    <div class="strip-item">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18"/><path d="M3 9h18M9 21V9"/></svg>
+      <h4>По вашим размерам</h4><p>Подгоняем под нишу, стену и интерьер</p>
+    </div>
+    <div class="strip-item">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 7l9-4 9 4v10l-9 4-9-4z"/><path d="M3 7l9 4 9-4M12 11v10"/></svg>
+      <h4>Бережная доставка</h4><p>СДЭК по всей России, коробка точно по размеру</p>
+    </div>
+    <div class="strip-item">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M14 6l4 4-9 9H5v-4z"/><path d="M12 8l4 4"/></svg>
+      <h4>Лёгкий монтаж</h4><p>Скрытое крепление и метизы в комплекте</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== КАТАЛОГ ===== -->
+<section class="catalog" id="catalog">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <div class="eyebrow">Интернет-магазин</div>
+        <h2>Каталог изделий</h2>
+      </div>
+      <p>Базовые модели можно заказать как есть или изменить под себя: размер, оттенок масла, количество ящиков, ручки.</p>
+    </div>
+
+    <div class="filters" id="filters">
+      <button class="filter active" data-f="all">Все</button>
+      <button class="filter" data-f="shelf">Полки</button>
+      <button class="filter" data-f="console">Консоли</button>
+      <button class="filter" data-f="stand">Тумбы</button>
+      <button class="filter" data-f="table">Столы</button>
+      <button class="filter" data-f="light">Свет</button>
+      <button class="filter" data-f="decor">Декор и мелочи</button>
+    </div>
+
+    <div class="products" id="products">
+      <!-- Полки -->
+      <article class="product" data-cat="shelf">
+        <div class="product-media"><span class="tag">Хит</span>
+          <div class="ph" data-label="полка с подсветкой"></div>
+          <button class="btn btn-solid quick" data-add="Полка с сенсорной подсветкой">В корзину</button></div>
+        <div class="cat">Полки</div>
+        <h3>Полка с сенсорной подсветкой</h3>
+        <div class="swatches"><i style="background:#d9ae7c"></i><i style="background:#8a5530"></i><i style="background:#4a3326"></i></div>
+        <div class="specs">Дуб 140×20×3 см · скрытый LED-профиль · касание включает свет, удержание регулирует яркость · матовый лак</div>
+        <div class="row"><div class="price"><small>цена</small> по запросу</div><button class="add" data-add="Полка с сенсорной подсветкой">+ В корзину</button></div>
+      </article>
+
+      <article class="product" data-cat="shelf">
+        <div class="product-media">
+          <div class="ph" data-label="парящая полка с фасками"></div>
+          <button class="btn btn-solid quick" data-add="Парящая полка с чёткими фасками">В корзину</button></div>
+        <div class="cat">Полки</div>
+        <h3>Парящая полка с фасками</h3>
+        <div class="swatches"><i style="background:#d9ae7c"></i><i style="background:#a06a3b"></i><i style="background:#8d8780"></i></div>
+        <div class="specs">Наша модель: толщина 3 см, ровные чёткие фаски, скрытое крепление. Любые размеры и оттенки масла Borma</div>
+        <div class="row"><div class="price"><small>цена</small> по запросу</div><button class="add" data-add="Парящая полка с чёткими фасками">+ В корзину</button></div>
+      </article>
+
+      <!-- Консоли -->
+      <article class="product" data-cat="console">
+        <div class="product-media"><span class="tag">Под заказ</span>
+          <div class="ph" data-label="консоль 140 см на 2 ящика"></div>
+          <button class="btn btn-solid quick" data-add="Подвесная консоль на 2 ящика">В корзину</button></div>
+        <div class="cat">Консоли</div>
+        <h3>Подвесная консоль на 2 ящика</h3>
+        <div class="swatches"><i style="background:#a06a3b"></i><i style="background:#4a3326"></i><i style="background:#8d8780"></i></div>
+        <div class="specs">140/30/15 см · корпус и фасады из дуба · push-to-open · «дуб коньяк», «тёмный дуб», «тёплый серый»</div>
+        <div class="row"><div class="price"><small>цена</small> по запросу</div><button class="add" data-add="Подвесная консоль на 2 ящика">+ В корзину</button></div>
+      </article>
+
+      <article class="product" data-cat="console">
+        <div class="product-media">
+          <div class="ph dark" data-label="консоль без ящиков, тёмный дуб"></div>
+          <button class="btn btn-solid quick" data-add="Консоль-полка, тёмный дуб">В корзину</button></div>
+        <div class="cat">Консоли</div>
+        <h3>Консоль без ящиков</h3>
+        <div class="swatches"><i style="background:#4a3326"></i><i style="background:#a06a3b"></i></div>
+        <div class="specs">102/20/18 см · цвет «тёмный дуб» · крепление к стене в комплекте</div>
+        <div class="row"><div class="price">от 17 000 ₽</div><button class="add" data-add="Консоль-полка, тёмный дуб">+ В корзину</button></div>
+      </article>
+
+      <article class="product" data-cat="console">
+        <div class="product-media">
+          <div class="ph grey" data-label="консоль на ножках, тёплый серый"></div>
+          <button class="btn btn-solid quick" data-add="Консоль на съёмных ножках">В корзину</button></div>
+        <div class="cat">Консоли</div>
+        <h3>Консоль на съёмных ножках</h3>
+        <div class="swatches"><i style="background:#8d8780"></i><i style="background:#d9ae7c"></i></div>
+        <div class="specs">86/47/80 см · ножки 4 см на четырёх болтах · туалетный столик, прихожая или рабочее место</div>
+        <div class="row"><div class="price"><small>цена</small> по запросу</div><button class="add" data-add="Консоль на съёмных ножках">+ В корзину</button></div>
+      </article>
+
+      <!-- Тумбы -->
+      <article class="product" data-cat="stand">
+        <div class="product-media"><span class="tag">Хит</span>
+          <div class="ph" data-label="подвесная прикроватная тумба"></div>
+          <button class="btn btn-solid quick" data-add="Подвесная прикроватная тумба">В корзину</button></div>
+        <div class="cat">Тумбы</div>
+        <h3>Подвесная прикроватная тумба</h3>
+        <div class="swatches"><i style="background:#d9ae7c"></i><i style="background:#a06a3b"></i><i style="background:#4a3326"></i></div>
+        <div class="specs">35/27,5/11,5 см · ящик целиком из дуба со стопором · французская планка · ручка на выбор</div>
+        <div class="row"><div class="price"><small>цена</small> по запросу</div><button class="add" data-add="Подвесная прикроватная тумба">+ В корзину</button></div>
+      </article>
+
+      <article class="product" data-cat="stand">
+        <div class="product-media"><span class="tag">Новинка</span>
+          <div class="ph dark" data-label="тумба под проигрыватель"></div>
+          <button class="btn btn-solid quick" data-add="Тумба под виниловый проигрыватель">В корзину</button></div>
+        <div class="cat">Тумбы</div>
+        <h3>Тумба под винил</h3>
+        <div class="swatches"><i style="background:#a06a3b"></i><i style="background:#d9ae7c"></i></div>
+        <div class="specs">Сверху проигрыватель, в малой нише ресивер, в большой пластинки. Отверстия для проводов сзади</div>
+        <div class="row"><div class="price"><small>цена</small> по запросу</div><button class="add" data-add="Тумба под виниловый проигрыватель">+ В корзину</button></div>
+      </article>
+
+      <!-- Столы -->
+      <article class="product" data-cat="table">
+        <div class="product-media"><span class="tag">Премиум</span>
+          <div class="ph" data-label="обеденный стол из дуба"></div>
+          <button class="btn btn-solid quick" data-add="Обеденный стол из массива дуба">В корзину</button></div>
+        <div class="cat">Столы</div>
+        <h3>Обеденный стол</h3>
+        <div class="swatches"><i style="background:#d9ae7c"></i><i style="background:#a06a3b"></i></div>
+        <div class="specs">Цельный массив дуба. Тот самый дубовый стол, который остаётся в семье на поколения</div>
+        <div class="row"><div class="price">195 000 ₽</div><button class="add" data-add="Обеденный стол из массива дуба">+ В корзину</button></div>
+      </article>
+
+      <!-- Свет -->
+      <article class="product" data-cat="light">
+        <div class="product-media">
+          <div class="ph dark" data-label="торшер-тренога"></div>
+          <button class="btn btn-solid quick" data-add="Торшер-тренога из дуба">В корзину</button></div>
+        <div class="cat">Свет</div>
+        <h3>Торшер-тренога</h3>
+        <div class="swatches"><i style="background:#a06a3b"></i><i style="background:#b99a62"></i></div>
+        <div class="specs">Массив дуба, итальянское масло · точёная латунь у основания · абажур 40 см · умная лампа</div>
+        <div class="row"><div class="price"><small>цена</small> по запросу</div><button class="add" data-add="Торшер-тренога из дуба">+ В корзину</button></div>
+      </article>
+
+      <article class="product" data-cat="light">
+        <div class="product-media"><span class="tag">1 экземпляр</span>
+          <div class="ph" data-label="светильники из спилов"></div>
+          <button class="btn btn-solid quick" data-add="Комплект светильников из спилов">В корзину</button></div>
+        <div class="cat">Свет</div>
+        <h3>Светильники из спилов</h3>
+        <div class="swatches"><i style="background:#c48a52"></i><i style="background:#1d1d1d"></i></div>
+        <div class="specs">Комплект из двух штук · живая фактура дерева · чёрная фурнитура, матовые абажуры</div>
+        <div class="row"><div class="price"><small>цена</small> по запросу</div><button class="add" data-add="Комплект светильников из спилов">+ В корзину</button></div>
+      </article>
+
+      <!-- Декор -->
+      <article class="product" data-cat="decor">
+        <div class="product-media">
+          <div class="ph" data-label="зеркало с полкой"></div>
+          <button class="btn btn-solid quick" data-add="Зеркало с дубовой полкой">В корзину</button></div>
+        <div class="cat">Декор</div>
+        <h3>Зеркало с глубокой полкой</h3>
+        <div class="swatches"><i style="background:#d9ae7c"></i><i style="background:#4a3326"></i></div>
+        <div class="specs">Массив дуба. Для прихожей или ванной, размеры под ваше пространство</div>
+        <div class="row"><div class="price"><small>цена</small> по запросу</div><button class="add" data-add="Зеркало с дубовой полкой">+ В корзину</button></div>
+      </article>
+
+      <article class="product" data-cat="decor">
+        <div class="product-media">
+          <div class="ph" data-label="сервировочная доска"></div>
+          <button class="btn btn-solid quick" data-add="Сервировочная доска из дуба">В корзину</button></div>
+        <div class="cat">Мелочи</div>
+        <h3>Сервировочная доска</h3>
+        <div class="swatches"><i style="background:#d9ae7c"></i></div>
+        <div class="specs">Дуб с живым краем · 45 × 20–28 см · толщина 4–4,8 см</div>
+        <div class="row"><div class="price"><small>цена</small> по запросу</div><button class="add" data-add="Сервировочная доска из дуба">+ В корзину</button></div>
+      </article>
+    </div>
+
+    <div class="custom-banner reveal">
+      <div class="in">
+        <div class="eyebrow">Индивидуальный заказ</div>
+        <h3>Не нашли нужное? Сделаем по вашему эскизу</h3>
+        <p>Стеллажи, столешницы, подоконники, зеркала. Чем подробнее обсудим заказ до начала работы, тем точнее выйдет результат.</p>
+        <a href="#contact" class="btn btn-solid">Рассчитать проект</a>
+        <div class="marketplaces">Готовые модели также на: <span>Wildberries</span><span>Ozon</span><span>Авито</span></div>
+      </div>
+      <div class="ph dark" data-label="процесс в мастерской"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== О НАС ===== -->
+<section id="about">
+  <div class="wrap about-grid">
+    <div class="about-photos reveal">
+      <div class="ph" data-label="Катя и Дима в мастерской"></div>
+      <div class="ph dark" data-label="руки, детали, станок"></div>
+    </div>
+    <div class="about-text reveal">
+      <div class="eyebrow">О нас</div>
+      <h2>Муж и жена.<br><em>Дерево. Жизнь.</em></h2>
+      <p>Нас зовут Катя и Дима. Мы работаем вдвоём и делаем вещи из дерева. Этим живём каждый день: без офисов, без спешки, без идеальной картинки.</p>
+      <p>Катя придумывает модели и ведёт блог. Дима работает за станками и доводит каждую деталь до идеала. Идеи рождаются вместе: сначала обсуждаем всё дома, а потом идём в мастерскую.</p>
+      <div class="quote">«Делать мебель круто, но делать её в четыре руки с любимым человеком — это совсем другие эмоции»</div>
+      <p>Мы любим изделия, в которых технологии незаметны, а всё внимание достаётся дереву и атмосфере.</p>
+      <div class="signature">
+        <div><b>Екатерина</b><span>идеи, дизайн, блог</span></div>
+        <div><b>Дмитрий</b><span>мастер, станки, торшеры</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ПУТЬ ===== -->
+<section class="path">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div><div class="eyebrow">Наша история</div><h2>От балкона до мастерской</h2></div>
+      <p>Мы прошли путь, который знаком многим мастерам, и нашли свой материал.</p>
+    </div>
+    <div class="timeline reveal">
+      <div class="tl"><div class="dot">1</div><h4>Балкон</h4><p>Всё началось с картинки: увидели подвесную деревянную тумбочку и захотели сделать такую сами.</p></div>
+      <div class="tl"><div class="dot">2</div><h4>Сосна</h4><p>Первые изделия, как у всех. Учились на мягком и простом материале.</p></div>
+      <div class="tl"><div class="dot">3</div><h4>Покраска</h4><p>Белые комоды и туалетные столики. Прошли путь покраски с нуля и поняли, что хотим показывать само дерево.</p></div>
+      <div class="tl"><div class="dot">4</div><h4>Бук и лиственница</h4><p>Тумбочки из бука и берёзы стали нашими первыми хитами на маркетплейсах.</p></div>
+      <div class="tl"><div class="dot">5</div><h4>Дуб</h4><p>Сегодня мы работаем только с массивом дуба. Это мебель, которая передаётся по наследству.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== РАБОТЫ ===== -->
+<section class="works" id="works">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div><div class="eyebrow">Портфолио</div><h2>Наши работы</h2></div>
+      <p>Изделия, сделанные для наших клиентов. Каждое уникально по размерам и оттенку.</p>
+    </div>
+    <div class="gallery reveal">
+      <div class="work w-tall w-wide"><div class="ph" data-label="обеденный стол"></div><div class="cap"><h4>Обеденный стол</h4><span>Массив дуба</span></div></div>
+      <div class="work"><div class="ph dark" data-label="торшер"></div><div class="cap"><h4>Торшер-тренога</h4><span>Дуб, латунь, умная лампа</span></div></div>
+      <div class="work"><div class="ph" data-label="полка с подсветкой"></div><div class="cap"><h4>Полка со светом</h4><span>140×20×3, матовый лак</span></div></div>
+      <div class="work w-tall"><div class="ph" data-label="зеркало"></div><div class="cap"><h4>Зеркало с полкой</h4><span>Для клиента</span></div></div>
+      <div class="work"><div class="ph grey" data-label="консоль на ножках"></div><div class="cap"><h4>Консоль на ножках</h4><span>«Тёплый серый», 86/47/80</span></div></div>
+      <div class="work w-wide"><div class="ph dark" data-label="стеллаж"></div><div class="cap"><h4>Стеллаж из дуба</h4><span>Сложный заказ, который мы любим</span></div></div>
+      <div class="work"><div class="ph" data-label="тумба под винил"></div><div class="cap"><h4>Тумба под винил</h4><span>Две ниши, кабель-канал</span></div></div>
+      <div class="work w-wide"><div class="ph" data-label="консоль 2 ящика"></div><div class="cap"><h4>Консоль на 2 ящика</h4><span>140/30/15, push-to-open</span></div></div>
+      <div class="work"><div class="ph dark" data-label="светильники из спилов"></div><div class="cap"><h4>Светильники из спилов</h4><span>В единственном экземпляре</span></div></div>
+    </div>
+    <div class="works-more"><a href="https://www.instagram.com/katuyshapro/" target="_blank" rel="noopener" class="btn btn-ghost">Больше работ в Instagram</a></div>
+  </div>
+</section>
+
+<!-- ===== МАТЕРИАЛЫ ===== -->
+<section id="materials">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div><div class="eyebrow">Материалы и покрытия</div><h2>Почему дуб — это навсегда</h2></div>
+      <p>Дуб надёжен, красив и легко реставрируется даже в домашних условиях.</p>
+    </div>
+    <div class="materials-grid reveal">
+      <div class="mat"><div class="num">01</div><h4>Цельный массив</h4><p>Корпус, фасады, ящики, даже донышко делаем из дуба. Для задней стенки консолей берём фанеру. Такая мебель служит поколениям.</p></div>
+      <div class="mat"><div class="num">02</div><h4>Масло Borma</h4><p>Итальянское масло с твёрдым воском. Покрытие гладкое и тёплое на ощупь, а царапины легко убрать самостоятельно.</p></div>
+      <div class="mat"><div class="num">03</div><h4>Полиуретановый лак</h4><p>Матовый лак защищает от влаги и загрязнений. Подходит для кухни, ванной и рабочего места.</p></div>
+    </div>
+    <div class="tones reveal">
+      <div class="tone"><i style="background:linear-gradient(135deg,#e6c9a2,#cfa577)"></i>Натуральный</div>
+      <div class="tone"><i style="background:linear-gradient(135deg,#d9ae7c,#b98551)"></i>Медовый</div>
+      <div class="tone"><i style="background:linear-gradient(135deg,#b07a46,#7f4f2b)"></i>Дуб коньяк</div>
+      <div class="tone"><i style="background:linear-gradient(135deg,#6b4a33,#3e2a1c)"></i>Тёмный дуб</div>
+      <div class="tone"><i style="background:linear-gradient(135deg,#a8a098,#77706a)"></i>Тёплый серый</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ОТЗЫВЫ ===== -->
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div><div class="eyebrow">Отзывы</div><h2>Что говорят о наших работах</h2></div>
+      <p>Нам важно каждое слово. Спасибо, что выбираете живое дерево.</p>
+    </div>
+    <div class="rev-grid reveal">
+      <div class="rev"><p>Лаконичный дизайн, мне нравится. Тактильные ощущения от цельного дерева — просто кайф! Ценность обоснована.</p><div class="who"><i>Д</i><div>@derevo_i_podarki<small>об обеденном столе</small></div></div></div>
+      <div class="rev"><p>Как тепло и уютно прям. Очень круто смотрится.</p><div class="who"><i>Л</i><div>@lira__q<small>о зеркале с полкой</small></div></div></div>
+      <div class="rev"><p>Стол — суперский. Знающие люди и так купят.</p><div class="who"><i>М</i><div>@msmsrgch<small>об обеденном столе</small></div></div></div>
+    </div>
+    <p class="note">Макет: пока здесь стоят комментарии подписчиков из Instagram. Их нужно заменить на настоящие отзывы покупателей.</p>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section>
+  <div class="wrap faq-grid">
+    <div class="reveal">
+      <div class="eyebrow">Вопросы</div>
+      <h2 style="font-size:clamp(38px,4.4vw,60px);margin-top:18px">Доставка, оплата и уход</h2>
+      <p style="color:var(--muted);margin-top:22px;max-width:360px">Не нашли ответ? Напишите нам в Telegram или Direct, ответим лично.</p>
+    </div>
+    <div class="reveal">
+      <details class="faq-item" open><summary>Как сделать заказ?</summary><p>Добавьте изделия в корзину и оформите заявку или напишите нам в Telegram/Direct. Обсудим размеры, оттенок и детали, после чего назовём точную стоимость и срок.</p></details>
+      <details class="faq-item"><summary>Можно изменить размер или цвет?</summary><p>Да, всё обсуждаемо: размеры, оттенок масла Borma, количество ящиков, ручки. Большинство моделей делаем под конкретный интерьер.</p></details>
+      <details class="faq-item"><summary>Как вы доставляете?</summary><p>Отправляем СДЭК по всей России. Упаковываем в коробку точно по размеру и прокладываем пенопластом со всех сторон, так что риск повреждения минимален. Есть самовывоз из мастерской.</p></details>
+      <details class="faq-item"><summary>Сложно ли повесить полку или тумбу?</summary><p>Нет. Используем скрытые менсолодержатели и французскую планку, саморезы и дюбели кладём в комплект. Монтаж займёт несколько минут.</p></details>
+      <details class="faq-item"><summary>Как ухаживать за мебелью из дуба?</summary><p>Протирайте мягкой влажной тканью без абразивов. Изделия под маслом с воском можно освежить и отреставрировать дома, царапины легко убираются.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ===== КОНТАКТЫ ===== -->
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div class="reveal">
+      <div class="eyebrow">Контакты</div>
+      <h2>Давайте создадим <em>вашу</em> мебель</h2>
+      <p class="lead">Расскажите, что хотите. Обсудим детали, предложим размеры и оттенок, рассчитаем стоимость.</p>
+      <div class="channels">
+        <a class="channel" href="https://t.me/misEkaterina" target="_blank" rel="noopener"><div><b>Telegram</b><span>t.me/misEkaterina</span></div><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+        <a class="channel" href="https://www.instagram.com/katuyshapro/" target="_blank" rel="noopener"><div><b>Instagram</b><span>@katuyshapro · пишите в Direct</span></div><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+        <a class="channel" href="https://www.youtube.com/@mis_ekaterina" target="_blank" rel="noopener"><div><b>YouTube</b><span>Процесс работы в мастерской</span></div><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+        <a class="channel" href="mailto:misekaterina.official@gmail.com"><div><b>Почта</b><span>misekaterina.official@gmail.com</span></div><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      </div>
+    </div>
+    <form class="order reveal" id="orderForm">
+      <h3>Заявка на изделие</h3>
+      <p>Ответим в течение дня и обсудим детали.</p>
+      <div class="two">
+        <div class="field"><label>Имя</label><input required placeholder="Как к вам обращаться"></div>
+        <div class="field"><label>Телефон или Telegram</label><input required placeholder="+7 … или @ник"></div>
+      </div>
+      <div class="field"><label>Что хотите заказать</label>
+        <select><option>Полка</option><option>Консоль</option><option>Тумба</option><option>Стол</option><option>Торшер / светильник</option><option>Зеркало</option><option>Другое / по эскизу</option></select></div>
+      <div class="field"><label>Размеры, оттенок, пожелания</label><textarea id="orderMsg" placeholder="Например: консоль 120 см, 2 ящика, тёмный дуб"></textarea></div>
+      <button class="btn btn-dark" type="submit" style="width:100%;justify-content:center">Отправить заявку</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="logo" style="color:var(--cream)"><div class="logo-mark">К&amp;Д</div><div class="logo-text">Катя и Дима<small>мебель из массива дуба</small></div></div>
+    <div>© 2026 Семейная столярная мастерская</div>
+  </div>
+</footer>
+
+<!-- корзина -->
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="drawer" aria-label="Корзина">
+  <div class="drawer-head"><h3>Корзина</h3><button id="cartClose" aria-label="Закрыть">×</button></div>
+  <div class="drawer-body" id="cartBody"></div>
+  <div class="drawer-foot">
+    <p>Стоимость изделий на заказ уточним после обсуждения размеров и оттенка.</p>
+    <a href="#contact" class="btn btn-solid" id="checkout">Оформить заявку</a>
+  </div>
+</aside>
+<div class="toast" id="toast"></div>
+
+<script>
+// шапка
+const header=document.getElementById('top');
+const onScroll=()=>header.classList.toggle('scrolled',scrollY>40);
+addEventListener('scroll',onScroll);onScroll();
+document.getElementById('burger').onclick=()=>document.getElementById('menu').classList.toggle('open');
+document.querySelectorAll('#menu a').forEach(a=>a.onclick=()=>document.getElementById('menu').classList.remove('open'));
+
+// фильтры
+document.querySelectorAll('.filter').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));b.classList.add('active');
+  const f=b.dataset.f;
+  document.querySelectorAll('.product').forEach(p=>p.classList.toggle('hide',f!=='all'&&p.dataset.cat!==f));
+});
+
+// корзина
+let cart=[];
+try{cart=JSON.parse(localStorage.getItem('kd-cart')||'[]')}catch(e){}
+const save=()=>{try{localStorage.setItem('kd-cart',JSON.stringify(cart))}catch(e){}};
+const toast=t=>{const el=document.getElementById('toast');el.textContent=t;el.classList.add('on');clearTimeout(el._t);el._t=setTimeout(()=>el.classList.remove('on'),2200)};
+function render(){
+  document.getElementById('cartCount').textContent=cart.length||'';
+  const body=document.getElementById('cartBody');
+  body.innerHTML=cart.length?cart.map((n,i)=>`<div class="ci"><div class="ph"></div><div><b>${n}</b><span>массив дуба · под заказ</span></div><button data-rm="${i}" aria-label="Удалить">×</button></div>`).join(''):'<div class="empty">Пока пусто.<br>Загляните в каталог.</div>';
+  body.querySelectorAll('[data-rm]').forEach(b=>b.onclick=()=>{cart.splice(+b.dataset.rm,1);save();render()});
+}
+document.querySelectorAll('[data-add]').forEach(b=>b.onclick=()=>{cart.push(b.dataset.add);save();render();toast('Добавлено: '+b.dataset.add)});
+const drawer=document.getElementById('drawer'),overlay=document.getElementById('overlay');
+const openCart=o=>{drawer.classList.toggle('on',o);overlay.classList.toggle('on',o)};
+document.getElementById('cartOpen').onclick=()=>openCart(true);
+document.getElementById('cartClose').onclick=overlay.onclick=()=>openCart(false);
+document.getElementById('checkout').onclick=()=>{openCart(false);if(cart.length)document.getElementById('orderMsg').value='Хочу заказать: '+cart.join(', ')};
+document.getElementById('orderForm').onsubmit=e=>{e.preventDefault();toast('Спасибо! Это макет: заявка пока никуда не отправляется');};
+render();
+
+// появление
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
