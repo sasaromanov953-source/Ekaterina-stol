@@ -56,6 +56,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.08;letter-spacin
   repeating-linear-gradient(92deg, rgba(255,255,255,.04) 0 2px, transparent 2px 9px),
   linear-gradient(135deg, #9b9288, #6f6860 60%, #4d4843);}
 .ph > img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.hero-img .ph > img{object-position:60% 50%}
 .ph[data-label]::after{content:"фото: " attr(data-label);position:absolute;left:14px;bottom:12px;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.75);background:rgba(15,21,29,.35);padding:5px 9px;backdrop-filter:blur(4px)}
 .ph:has(img)::after{display:none}
 
@@ -337,7 +338,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
     </div>
   </div>
   <div class="hero-img">
-    <div class="ph dark" data-label="hero — главное изделие / мастерская"></div>
+    <div class="ph dark"><img src="img/detali-dub.jpg" alt="Угол тумбы из массива дуба крупным планом"></div>
     <div class="hero-badge">
       <div class="t">Любой размер и оттенок под ваш интерьер</div>
       <div class="s">Всё обсуждаемо: размеры, цвет, количество ящиков</div>
@@ -437,19 +438,19 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
 
       <article class="product" data-cat="console">
         <div class="product-media">
-          <div class="ph grey" data-label="консоль на ножках, тёплый серый"></div>
+          <div class="ph"><img src="img/konsol-nozhki.jpg" alt="Консоль из дуба на ножках с двумя ящиками" loading="lazy"></div>
           <button class="btn btn-solid quick" data-add="Консоль на съёмных ножках">В корзину</button></div>
         <div class="cat">Консоли</div>
         <h3>Консоль на съёмных ножках</h3>
-        <div class="swatches"><i style="background:#8d8780"></i><i style="background:#d9ae7c"></i></div>
-        <div class="specs">86/47/80 см · ножки 4 см на четырёх болтах · туалетный столик, прихожая или рабочее место</div>
+        <div class="swatches"><i style="background:#d9ae7c"></i><i style="background:#8d8780"></i></div>
+        <div class="specs">2 ящика · съёмные ножки на болтах · туалетный столик, прихожая или рабочее место</div>
         <div class="row"><div class="price"><small>цена</small> по запросу</div><button class="add" data-add="Консоль на съёмных ножках">+ В корзину</button></div>
       </article>
 
       <!-- Тумбы -->
       <article class="product" data-cat="stand">
         <div class="product-media"><span class="tag">Хит</span>
-          <div class="ph" data-label="подвесная прикроватная тумба"></div>
+          <div class="ph"><img src="img/tumbochka.jpg" alt="Подвесная тумбочка из дуба с ящиком" loading="lazy"></div>
           <button class="btn btn-solid quick" data-add="Подвесная прикроватная тумба">В корзину</button></div>
         <div class="cat">Тумбы</div>
         <h3>Подвесная прикроватная тумба</h3>
@@ -546,7 +547,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
   <div class="wrap about-grid">
     <div class="about-photos reveal">
       <div class="ph" data-label="Катя и Дима в мастерской"></div>
-      <div class="ph dark" data-label="руки, детали, станок"></div>
+      <div class="ph"><img src="img/tumbochka.jpg" alt="Тумбочка в мастерской" loading="lazy"></div>
     </div>
     <div class="about-text reveal">
       <div class="eyebrow">О нас</div>
@@ -591,8 +592,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
       <div class="work w-tall w-wide"><div class="ph" data-label="обеденный стол"></div><div class="cap"><h4>Обеденный стол</h4><span>Массив дуба</span></div></div>
       <div class="work"><div class="ph dark" data-label="торшер"></div><div class="cap"><h4>Торшер-тренога</h4><span>Дуб, латунь, умная лампа</span></div></div>
       <div class="work"><div class="ph" data-label="полка с подсветкой"></div><div class="cap"><h4>Полка со светом</h4><span>140×20×3, матовый лак</span></div></div>
-      <div class="work w-tall"><div class="ph" data-label="зеркало"></div><div class="cap"><h4>Зеркало с полкой</h4><span>Для клиента</span></div></div>
-      <div class="work"><div class="ph grey" data-label="консоль на ножках"></div><div class="cap"><h4>Консоль на ножках</h4><span>«Тёплый серый», 86/47/80</span></div></div>
+      <div class="work w-tall"><div class="ph"><img src="img/detali-dub.jpg" alt="Детали дубовой тумбы" loading="lazy"></div><div class="cap"><h4>Каждая деталь вручную</h4><span>Скруглённые кромки, масло</span></div></div>
+      <div class="work"><div class="ph"><img src="img/konsol-nozhki.jpg" alt="Консоль на ножках" loading="lazy"></div><div class="cap"><h4>Консоль на ножках</h4><span>Два ящика, массив дуба</span></div></div>
       <div class="work w-wide"><div class="ph dark" data-label="стеллаж"></div><div class="cap"><h4>Стеллаж из дуба</h4><span>Сложный заказ, который мы любим</span></div></div>
       <div class="work"><div class="ph" data-label="тумба под винил"></div><div class="cap"><h4>Тумба под винил</h4><span>Две ниши, кабель-канал</span></div></div>
       <div class="work w-wide"><div class="ph" data-label="консоль 2 ящика"></div><div class="cap"><h4>Консоль на 2 ящика</h4><span>140/30/15, push-to-open</span></div></div>
